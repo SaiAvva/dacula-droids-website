@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dacula Droids | FRC Team 8865</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: { blue: '#2544c4', light: '#f8fafc', } } } }
+        }
+    </script>
+</head>
+<body class="bg-brand-light text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="flex-grow">
+        <section class="relative bg-white pt-16 pb-12 border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-5xl font-extrabold text-gray-900 mb-6">
+                    Building Robots.<br> <span class="text-brand-blue">Building Leaders.</span>
+                </h2>
+                <div class="flex justify-center gap-4">
+                    <a href="sponsors.html" class="bg-brand-blue text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800 transition shadow-lg">Our Sponsors</a>
+                    <a href="robots.html" class="bg-gray-100 text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition">See Our Robots</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative w-full h-96 md:h-[500px] lg:h-[650px] rounded-3xl overflow-hidden shadow-2xl border-8 border-white group bg-gray-200">
+                    <img id="slide-img" src="https://i.postimg.cc/qB8nGL85/IMG-5787.jpg" alt="Team Photo" class="w-full h-full object-cover transition-opacity duration-500">
+                    
+                    <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white p-4 rounded-full opacity-0 group-hover:opacity-100 transition z-10 cursor-pointer hover:bg-black/90 text-xl">&#10094;</button>
+                    <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/60 text-white p-4 rounded-full opacity-0 group-hover:opacity-100 transition z-10 cursor-pointer hover:bg-black/90 text-xl">&#10095;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Nav and Footer
+        fetch('nav.html').then(response => response.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+            
+            // Automatically highlight the current page in the nav bar
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            document.querySelectorAll('#nav-placeholder a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.className = "text-brand-blue border-b-2 border-brand-blue pb-1 transition";
+                }
+            });
+        });
+        
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+
+        // Slideshow Logic
+        const images = [
+            "https://i.postimg.cc/gj97bDJ7/IMG-1479.jpg",
+            'https://i.postimg.cc/Ghk2BFBJ/IMG-8190.jpg',
+            'https://i.postimg.cc/FRVvrZC7/IMG-8426.jpg',
+            'https://i.postimg.cc/gj021QcY/IMG-7787.jpg',
+        ];
+        let currentSlide = 0;
+        const slideElement = document.getElementById('slide-img');
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= images.length) currentSlide = 0;
+            if (currentSlide < 0) currentSlide = images.length - 1;
+            
+            slideElement.style.opacity = 0;
+            setTimeout(() => {
+                slideElement.src = images[currentSlide];
+                slideElement.style.opacity = 1;
+            }, 200);
+        }
+        setInterval(() => changeSlide(1), 5000); 
+    </script>
+</body>
+</html>

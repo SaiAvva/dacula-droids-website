@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery | Dacula Droids 8865</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: { blue: '#2544c4', light: '#f8fafc', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">Team Gallery</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Photos and memories from our build seasons, competitions, and community outreach events.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/2544c4/ffffff?text=Competition+Day" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Pit+Crew" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=Drive+Team" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/2544c4/ffffff?text=Outreach+Event" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=Robot+Assembly" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+                <div class="h-64 bg-gray-200 rounded-xl overflow-hidden hover:opacity-90 transition cursor-pointer">
+                    <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=Team+Cheering" alt="Gallery Image" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('nav.html').then(response => response.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            document.querySelectorAll('#nav-placeholder a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.className = "text-brand-blue border-b-2 border-brand-blue pb-1 transition";
+                }
+            });
+        });
+        
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

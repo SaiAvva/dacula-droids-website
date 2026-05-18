@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Dacula Droids 8865</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: { blue: '#2544c4', light: '#f8fafc', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">Meet the Droids</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">We are a student-led robotics team dedicated to engineering excellence, community outreach, and continuous learning.</p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-center text-brand-blue mb-8 uppercase tracking-widest">Student Leadership</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="your-image-link.jpg" alt="Student Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Student Name</h4>
+                    <p class="text-brand-blue font-semibold text-sm">Robot Team Captain</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/lyxYjR2.jpeg" alt="Student Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Sai Sathvik Avva</h4>
+                    <p class="text-brand-blue font-semibold text-sm">Programming Lead</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="your-image-link.jpg" alt="Student Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Afzal E Armaan Shaik</h4>
+                    <p class="text-brand-blue font-semibold text-sm">CAD / Design Lead</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="your-image-link.jpg" alt="Student Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Student Name</h4>
+                    <p class="text-brand-blue font-semibold text-sm">Logistics Captain</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-center text-gray-700 mb-8 uppercase tracking-widest">Mentors & Coaches</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="your-image-link.jpg" alt="Coach Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Alan Cummings</h4>
+                    <p class="text-gray-500 font-medium text-sm">Head Mentor</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300 text-center pb-6">
+                    <div class="h-48 bg-gray-200 mb-4 flex items-center justify-center"><img src="your-image-link.jpg" alt="Mentor Name" class="w-full h-full object-cover"></div>
+                    <h4 class="text-lg font-bold text-gray-900">Ion Johnson</h4>
+                    <p class="text-gray-500 font-medium text-sm">Assistant Mentor</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('nav.html').then(response => response.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            document.querySelectorAll('#nav-placeholder a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.className = "text-brand-blue border-b-2 border-brand-blue pb-1 transition";
+                }
+            });
+        });
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Robots | Dacula Droids 8865</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: { blue: '#2544c4', light: '#f8fafc', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">Our Robots</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Explore the engineering history of FRC Team 8865, from our rookie year to today.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <a href="robot-2026.html" class="block bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group">
+                    <div class="h-64 bg-gray-200 relative">
+                        <img src="https://via.placeholder.com/600x400/2544c4/ffffff?text=2026+Robot" alt="2026 Robot" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-brand-blue bg-opacity-0 group-hover:bg-opacity-20 transition duration-300"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold text-gray-900">Helios</h3>
+                            <span class="bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-full">Current</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Built for the shooting. Click to see detailed specs, CAD, and reveal..</p>
+                        <span class="text-brand-blue font-semibold group-hover:underline">View Specs &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group">
+                    <div class="h-64 bg-gray-200 relative">
+                        <img src="https://via.placeholder.com/600x400/1e3a8a/ffffff?text=2025+Robot" alt="2025 Robot" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Athena</h3>
+                        <p class="text-gray-600 mb-4">Reefscape</p>
+                        <span class="text-brand-blue font-semibold group-hover:underline">Precision at its peak. View more. &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#" class="block bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 group">
+                    <div class="h-64 bg-gray-200 relative">
+                        <img src="https://via.placeholder.com/600x400/0f172a/ffffff?text=2024+Robot" alt="2024 Robot" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Frank</h3>
+                        <p class="text-gray-600 mb-4">Crescendo</p>
+                        <span class="text-brand-blue font-semibold group-hover:underline">Playing Notes to develop a musical excellence. View more. &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('nav.html').then(response => response.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+            const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+            document.querySelectorAll('#nav-placeholder a').forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.className = "text-brand-blue border-b-2 border-brand-blue pb-1 transition";
+                }
+            });
+        });
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>

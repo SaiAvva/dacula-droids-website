@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Robot | Dacula Droids 8865</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: { blue: '#2544c4', light: '#f8fafc', } } } }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <a href="robots.html" class="inline-flex items-center text-brand-blue font-semibold hover:underline mb-8">
+                &larr; Back to All Robots
+            </a>
+
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-extrabold text-gray-900 tracking-tight">2026 Robot Name</h2>
+                <p class="mt-4 text-xl text-gray-600">Built for the 2026 FIRST Robotics Competition.</p>
+            </div>
+
+            <div class="w-full h-96 md:h-[500px] bg-gray-900 rounded-3xl overflow-hidden mb-16 shadow-2xl flex items-center justify-center">
+                <span class="text-white text-lg font-medium">[2026 Robot Reveal Video or Main Photo]</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Technical Specifications</h3>
+                    <ul class="space-y-4 text-lg text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-brand-blue mr-3 font-bold">&check;</span>
+                            <strong>Drivetrain:</strong> Custom Swerve Drive
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-blue mr-3 font-bold">&check;</span>
+                            <strong>Programming Language:</strong> Java / WPILib
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-blue mr-3 font-bold">&check;</span>
+                            <strong>Vision Processing:</strong> Limelight 3G
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-blue mr-3 font-bold">&check;</span>
+                            <strong>Manipulator:</strong> [Insert subsystem details here]
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-brand-light p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Season Accolades</h3>
+                    <p class="text-gray-600 mb-4">
+                        Update this section as the 2026 season progresses with awards, event placements, and engineering notes.
+                    </p>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-2 font-medium">
+                        <li>Event 1: TBD</li>
+                        <li>Event 2: TBD</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('nav.html').then(response => response.text()).then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+            // Force highlight the 'robots' tab since this is a sub-page of robots
+            document.querySelectorAll('#nav-placeholder a').forEach(link => {
+                if (link.getAttribute('href') === 'robots.html') {
+                    link.className = "text-brand-blue border-b-2 border-brand-blue pb-1 transition";
+                }
+            });
+        });
+        fetch('footer.html').then(response => response.text()).then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+</body>
+</html>
